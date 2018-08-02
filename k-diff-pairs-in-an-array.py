@@ -1,6 +1,5 @@
 class Solution(object):
-    @staticmethod
-    def find_pairs(nums, k):
+    def findPairs(self, nums, k):
         """
         :type nums: List[int]
         :type k: int
@@ -26,16 +25,17 @@ class Solution(object):
 
             for i in nums:
                 v = i+k
-
-                if v in items.keys():
-                    if items[v] == 1:
-                        res += 1
-                        items[v] -= 1
+                try:
+                    val = items[v]
+                    res += 1
+                    del items[v]
+                except Exception as e:
+                    pass
 
             return res
 
 
 if __name__ == '__main__':
-    print Solution.find_pairs([1, 3, 1, 5, 4], 1)
-    print Solution.find_pairs([1, 3, 1, 5, 4], 0)
-    print Solution.find_pairs([1, 2, 3, 4, 5], -1)
+    print Solution().findPairs([1, 3, 1, 5, 4], 1)
+    print Solution().findPairs([1, 3, 1, 5, 4], 0)
+    print Solution().findPairs([1, 2, 3, 4, 5], -1)
