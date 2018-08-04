@@ -25,12 +25,9 @@ class Solution(object):
 
             for i in nums:
                 v = i+k
-                try:
-                    val = items[v]
+                if items.get(v):
                     res += 1
                     del items[v]
-                except Exception as e:
-                    pass
 
             return res
 
