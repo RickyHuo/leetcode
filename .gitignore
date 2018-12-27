@@ -1,7 +1,12 @@
 # leetcode
 
 venv
+.DS_Store
 
 # pycharm
 
 .idea/
+
+# Python
+
+*.pyc
