@@ -12,12 +12,12 @@ class Solution:
         self.queue = []
         self.res = []
 
-    def levelOrder(self, root: TreeNode) -> [[int]]:
+    def levelOrderBottom(self, root: TreeNode) -> [[int]]:
         if root is None:
             return []
         self.queue.append(root)
         self.build_queue()
-        return self.res
+        return self.res[::-1]
 
     def build_queue(self):
         while len(self.queue) > 0:
