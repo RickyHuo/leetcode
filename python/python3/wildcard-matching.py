@@ -1,7 +1,16 @@
 class Solution:
+
+    @staticmethod
+    def duplicate(str):
+        for i in range(1, len(str))[::-1]:
+            if str[i] == '*' and str[i-1] == '*':
+                str = str[0:i] + str[i + 1:]
+        return str
+
     def isMatch(self, s: str, p: str) -> bool:
         m, n = 0, 0
 
+        p = self.duplicate(p)
         len1 = len(s)
         len2 = len(p)
 
@@ -43,4 +52,6 @@ if __name__ == '__main__':
     print(Solution().isMatch("abc", "a**d"))
     print(Solution().isMatch("abc", "a**d"))
     print(Solution().isMatch("", "*"))
+    print(Solution.duplicate("****a"))
+    print(Solution.duplicate("****a***"))
 
